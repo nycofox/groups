@@ -13,15 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('reactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->foreignId('group_id')->nullable(); // If null then personal post
-            $table->text('body');
-            $table->timestamp('last_edited_at')->nullable();
-            $table->timestamp('archived_at')->nullable();
-            $table->unsignedBigInteger('reactions')->default(0);
-            $table->softDeletes();
+            $table->unsignedBigInteger('subject_id');
+            $table->string('subject_type');
+            $table->foreignId('reaction_type');
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('posts');
+        Schema::dropIfExists('reactions');
     }
 };
