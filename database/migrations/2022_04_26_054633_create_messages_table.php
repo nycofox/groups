@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('messages', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id');
+            $table->uuid()->primary();
+            $table->foreignUuid('user_uuid');
             $table->foreignId('room_id');
             $table->text('body');
             $table->timestamp('last_edited_at')->nullable();

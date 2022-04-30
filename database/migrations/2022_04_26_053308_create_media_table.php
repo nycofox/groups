@@ -14,7 +14,7 @@ return new class extends Migration {
     {
         Schema::create('media', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignUuid('user_uuid');
             $table->string('path');
             $table->string('type', 3); // See notes below
             $table->string('mime_type');

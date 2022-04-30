@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -14,9 +13,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            $table->id();
-            $table->uuid()->index();
-            $table->foreignId('user_id');
+            $table->uuid()->primary();
+            $table->foreignUuid('user_uuid');
             $table->morphs('commentable');
             $table->text('body');
             $table->timestamp('last_edited_at')->nullable();

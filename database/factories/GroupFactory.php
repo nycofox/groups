@@ -19,7 +19,7 @@ class GroupFactory extends Factory
     public function definition()
     {
         return [
-            'owner_id' => User::factory()->create()->id,
+            'owner_uuid' => User::factory()->create()->uuid,
             'slug' => Str::random(10),
             'name' => $this->faker->word(),
 

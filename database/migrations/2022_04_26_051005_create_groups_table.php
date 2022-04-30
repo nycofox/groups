@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('groups', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('owner_id');
+            $table->foreignUuid('owner_uuid');
             $table->string('slug')->unique();
             $table->string('name');
             $table->text('description')->nullable();

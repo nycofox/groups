@@ -20,7 +20,8 @@ class PostFactory extends Factory
     {
         return [
             'group_id' => Group::factory()->create()->id,
-            'user_id' => User::factory()->create()->id,
+//            'user_id' => User::factory()->create()->id,
+            'user_uuid' => User::factory()->create()->uuid,
 //            'title' => $this->faker->sentence,
             'body' => $this->faker->paragraph,
         ];

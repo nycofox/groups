@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('reactions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id');
+            $table->foreignUuid('user_uuid');
             $table->unsignedBigInteger('subject_id');
             $table->string('subject_type');
             $table->foreignId('reaction_type');
