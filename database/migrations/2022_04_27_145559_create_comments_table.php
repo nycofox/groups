@@ -17,9 +17,10 @@ return new class extends Migration
             $table->id();
             $table->uuid()->index();
             $table->foreignId('user_id');
-            $table->unsignedBigInteger('subject_id');
-            $table->string('subject_type');
+            $table->morphs('commentable');
             $table->text('body');
+            $table->timestamp('last_edited_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

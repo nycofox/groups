@@ -3,13 +3,18 @@
 namespace App\Models;
 
 
+use App\Traits\Commentable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory, SoftDeletes, Commentable;
+
+    protected $withCount = ['comments'];
+
+    protected $with = ['user'];
 
     /**
      * The attributes that should be cast.
@@ -26,8 +31,4 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function replies()
-    {
-        return $this->hasMany(Reply::class);
-    }
 }

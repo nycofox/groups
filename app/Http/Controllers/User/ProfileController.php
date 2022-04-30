@@ -13,6 +13,7 @@ class ProfileController extends Controller
     {
         return view('user.profile.show', [
             'user' => $user,
+            'posts' => $user->posts()->latest()->get(),
         ]);
     }
 }

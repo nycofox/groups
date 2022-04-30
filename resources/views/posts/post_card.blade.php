@@ -1,9 +1,7 @@
 <x-card>
     <div class="flex justify-between py-2">
         <div class="flex">
-            <img
-                class="w-10 h-10 rounded-full mr-2"
-                src="https://www.gravatar.com/avatar/{{ md5($post->user->email) }}">
+            <x-avatar :user="$post->user"></x-avatar>
             <div>
                 <div class="text-xl">
                     <a href="{{ route('profile', $post->user) }}">
@@ -21,7 +19,7 @@
     <footer>
         <div class="flex justify-between px-4 py-2">
             <div>Likes: 5</div>
-            <div>7 comments</div>
+            <div>{{ $post->comments_count }} {{ Str::plural('comment', $post->comments_count) }}</div>
         </div>
         <div class="flex justify-between py-2 px-4 border-t border-gray-400">
             <div>Like</div>
