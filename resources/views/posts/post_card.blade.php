@@ -8,7 +8,10 @@
                     {{ $post->user->name }}
                     </a>
                 </div>
-                <div class="text-xs mt-0">{{ $post->created_at->diffForHumans() }}</div>
+                <div class="text-xs mt-0">
+                    {{ $post->created_at->diffForHumans() }}
+                    in <a href="#" class="font-semibold">{{ $post->group->name }}</a>
+                </div>
             </div>
         </div>
         <div class="text-sm">...</div>
