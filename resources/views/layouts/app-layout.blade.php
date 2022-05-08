@@ -14,6 +14,8 @@
 
     <title>{{ config('app.name') }}</title>
 
+    @livewireStyles
+
 </head>
 <body class="font-sans antialiased">
 <div class="min-h-screen bg-amber-50">
@@ -22,20 +24,23 @@
 
     <main class="container mx-auto pt-20 flex justify-between h-screen sticky">
         <div class="hidden md:block mt-4 w-64">
-        @include('layouts.sidebar_left')
+            @include('layouts.sidebar_left')
         </div>
 
         <div class="px-6 max-w-2xl overflow-auto max-h-full scrollbar">
             <div class="pt-4">
-            {{ $slot }}
+                {{ $slot }}
             </div>
         </div>
 
         <div class="hidden lg:block mt-4 w-64">
-        @include('layouts.sidebar_right')
+            @include('layouts.sidebar_right')
         </div>
     </main>
 
 </div>
+
+@livewireScripts
+
 </body>
 </html>
